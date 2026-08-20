@@ -27,9 +27,9 @@ public class UsuarioDAO {
             stmt.executeUpdate();
 
 
-            try (ResultSet rs = stmt.getGeneratedKeys()) {  // <- Retorna o ID gerado automaticamente pelo banco (SERIAL)
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
                 if (rs.next()) {
-                    usuario.setId(rs.getLong(1)); //<- Atribui ao usuario um ID gerado no banco de dados
+                    usuario.setId(rs.getLong(1));
                 }
             }
         }
@@ -77,7 +77,7 @@ public class UsuarioDAO {
         PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, email);
-        try (ResultSet rs = stmt.executeQuery()){  // excuteQuery() <- Executa um SELECT e retorna um ResultSet.
+        try (ResultSet rs = stmt.executeQuery()){  
             if(rs.next()){
                 return mapearUsuario(rs);
                 }
