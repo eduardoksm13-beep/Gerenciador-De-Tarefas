@@ -77,7 +77,7 @@ public class UsuarioDAO {
         PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, email);
-        try (ResultSet rs = stmt.executeQuery()){  
+        try (ResultSet rs = stmt.executeQuery()){
             if(rs.next()){
                 return mapearUsuario(rs);
                 }
